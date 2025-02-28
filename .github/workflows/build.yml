@@ -48,7 +48,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-${{ matrix.target }}-
       - name: Install p7zip
-        run: apt install p7zip
+        run: su root && apt install p7zip
       - name: Build
         run: ./.ci/linux.sh
       - name: Pack

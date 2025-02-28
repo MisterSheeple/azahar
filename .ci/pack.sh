@@ -41,7 +41,7 @@ function pack_artifacts() {
     elif [ "$OS" = "android" ] || [ "$OS" = "macos" ]; then
         ARCHIVE_FULL_NAME="$ARCHIVE_NAME.zip"
         zip -r "$ARCHIVE_FULL_NAME" "$REV_NAME"
-    elif [ "$OS" = "linux" ] && [ "$TARGET" = "appimage" ]; then
+    elif [ "$OS" = "linux" ] && [ ${{ matrix.target }} = "appimage" ]; then
         ARCHIVE_FULL_NAME="$ARCHIVE_NAME.AppImage"
         zip -r "$ARCHIVE_FULL_NAME" "$REV_NAME"
     else

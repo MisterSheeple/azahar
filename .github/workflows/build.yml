@@ -128,6 +128,12 @@ jobs:
             ${{ github.job }}-${{ matrix.target }}-
       - name: Build
         run: ./.ci/linux.sh
+      - name: Upload
+        if: ${{ matrix.target == 'appimage' }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: ${{ github.job }}-${{ matrix.target }}
+          path: artifacts/
 
   macos:
     runs-on: 'macos-26'
